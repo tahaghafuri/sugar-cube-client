@@ -1,12 +1,10 @@
 <?php declare(strict_types=1);
 namespace Gitea\Model;
 
-use Enum\{EnumTrait};
+use MyCLabs\Enum\Enum;
 
 /** Defines the state of a Gitea status. */
-final class StatusState {
-    use EnumTrait;
-
+final class StatusState extends Enum {
     /** @var string The status is an error. */
     const error = 'error';
 
