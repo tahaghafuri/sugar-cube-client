@@ -37,7 +37,7 @@ class Branches extends AbstractApiRequester
 
         $repositoryCollection = new ApiItemCollection();
         try {
-            $response = $this->get("repos/$owner/$repository/branches");
+            $response = $this->get("api/v1/repos/$owner/$repository/branches");
             $statusCode = $response->getStatusCode();
             $body = $response->getBody();
             if ($statusCode == 200) {

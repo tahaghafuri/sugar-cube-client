@@ -37,7 +37,7 @@ class Tags extends AbstractApiRequester
 
         $repositoryCollection = new ApiItemCollection();
         try {
-            $response = $this->get("repos/$owner/$repository/tags");
+            $response = $this->get("api/v1/repos/$owner/$repository/tags");
             $statusCode = $response->getStatusCode();
             $body = $response->getBody();
             if ($statusCode == 200) {

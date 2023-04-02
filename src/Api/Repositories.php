@@ -48,7 +48,7 @@ class Repositories extends AbstractAllApiRequester
 
         $repositoryCollection = new ApiItemCollection();
         try {
-            $response = $this->get("repos/search",[
+            $response = $this->get("api/v1/repos/search",[
                 "page" => $page,
                 "limit" => $limit
             ]);
@@ -94,7 +94,7 @@ class Repositories extends AbstractAllApiRequester
     {
         $client = $this->getClient();
         try {
-            $response = $this->get("repos/$owner/$repoName");
+            $response = $this->get("api/v1/repos/$owner/$repoName");
             $statusCode = $response->getStatusCode();
             $body = (string) $response->getBody();
             if ($statusCode == 200) {
@@ -126,7 +126,7 @@ class Repositories extends AbstractAllApiRequester
     {
         $client = $this->getClient();
         try {
-            $response = $this->get("repositories/$repoId");
+            $response = $this->get("api/v1/repositories/$repoId");
             $statusCode = $response->getStatusCode();
             $body = (string) $response->getBody();
             if ($statusCode == 200) {
@@ -163,11 +163,11 @@ class Repositories extends AbstractAllApiRequester
         $client = $this->getClient();
         try {
             if ($ref !== "") {
-                $response = $this->get("repos/$owner/$repoName/contents/$filepath",[
+                $response = $this->get("api/v1/repos/$owner/$repoName/contents/$filepath",[
                     "ref" => $ref
                 ]);
             } else {
-                $response = $this->get("repos/$owner/$repoName/contents/$filepath");
+                $response = $this->get("api/v1/repos/$owner/$repoName/contents/$filepath");
             }
 
             $statusCode = $response->getStatusCode();
@@ -206,7 +206,7 @@ class Repositories extends AbstractAllApiRequester
         $client = $this->getClient();
         $filepath = $gitRef.$format;
         try {
-            $response = $this->get("repos/$owner/$repoName/archive/$filepath");
+            $response = $this->get("api/v1/repos/$owner/$repoName/archive/$filepath");
             $statusCode = $response->getStatusCode();
             $body = (string) $response->getBody();
             if ($statusCode == 200) {

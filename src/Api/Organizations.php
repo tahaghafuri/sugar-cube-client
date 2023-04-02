@@ -30,7 +30,7 @@ class Organizations extends AbstractApiRequester
     {
         $client = $this->getClient();
         try {
-            $response = $this->get("orgs/$username");
+            $response = $this->get("api/v1/orgs/$username");
             $statusCode = $response->getStatusCode();
             $body = $response->getBody();
             if ($statusCode == 200) {
